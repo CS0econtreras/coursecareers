@@ -1,0 +1,126 @@
+arrays and hashing:
+    -unordered Map is used as a hash table for storage
+    -Hashing uses an array like structure
+    -Hashing takes in a key and converts it into an index
+    -.first is the key and .second is the value
+    -.insert(key, value), .emplace(key, value);
+    -.erase(key), .at() accesses element with a specific key
+    -.operator[key] = value; acceses or inserts elemtn with a specific key
+    -.find(), .end() used to find something in the hash table
+    -.find() searches for the key and keyP[ss] is the key-value
+    -.count returns number of elements in the hash table or unordered_set
+    -.size(), .clear() removes all elements .size gives you number of elements in the Map
+    unordered_set
+    -also used for hashing
+    -close to an unordered map but it only stores unique keys(elements)
+
+Notes for Static arrays:
+    -We use two pointer i and j
+    -i iterates through all the arrays 
+    -j stays at the index where something need to change by base case
+    -example we dont increment if index i != to value
+    -or if i == i-2
+    -once basecase is found we make a[j] = a[i] j++
+    -we return j 
+
+Dynamic arrays:
+    -concatenate an array we ran a forloop it insert each element 
+    into a new vector then made another forloop doing the same thing
+    -That way we insetered the og array into the new one twice
+    
+Stack:
+    -Use a stack if we have to delete and add to the end of a structure
+    -Baseball game is an example we were addind to the end of the stack
+    -We were also keeping track of the two previous scores
+    .size()
+    .push_back()
+    .pop()
+    .insert()
+    .find()
+    .end()
+
+
+Singly Linked List
+    -you need to create a node in a class or struct having an int and a next pointer
+    -We can make nullptr to have an extra node to manuvering room
+    -To reverse a linked list we made a null and made it = curr-> next
+    -The null marks the new end of the linked list
+    -We also created a dummy node and a curr node = dummy node in order to traverse the dummy
+
+Doubly Linked List
+    -A Linked List that can back track 
+    -To create a linked doubly linked list I created a class that make the node
+    -Then a class the make the linked list and functions to add or removes nodes
+    -The Node class has an int a Node* and a Node* next the default construct is int NULL NULL
+    -For the linkedList class has a private  left and right node*
+    -The constructor makes the right and left = new Node(0)
+    -Then we linked them left-> next = right; right-> prev = left;
+    -Then we have all of the functions that do thinks like add or remove nodes 
+    -Set the newNode pointers then link the list to the newNode
+    Creating a search history doubly linked
+        -Made a node class and a constructor
+        -Made my history class with a private Node* curr
+        -in public i created my constructor
+        -then my vistited which is just adding a new node attching it to go both ways
+        -then creating a function with wileloops to travers backward and forward
+    
+Queues:
+    -First in First out
+    -.push() pushes to the back of the queue .pop() pops the front of the queue
+    -.push(.fornt) pushes the front to the back of queue then we can pop it
+    -use a forloop to add elements of an array into a queue
+    -.size() .back()
+    Implementing stack with Queues
+        -To do this with one queue use concept of rotation
+        -For this you use a for loop to run iterate through the queue
+        -push(q.front) to get it to the back then q.pop() to so it not at the front of queue
+        -this will make it firt in last out (FILO)
+
+
+Classes:
+    -when we have a constructor with no code it doesnt prefrom anything
+    -constructors are often used to initialize data members or perform 
+     necessary setup for an object when it's created
+    -
+
+InsertionSort:
+
+
+MergeSort:
+    First Way
+    Take in an array and use base case array.size() <= 1 return array
+    create a middleIdx and create completly knew arrays splitting the array in half
+    recusrivly call on the left and right enclosed by a doMerge function so once the base case of both arrays = 1 we can start merging 
+
+    Second Way something but only deal with indexes
+    creage the merge sort function that check the size of the array and returns if <= 1
+    make auxiliaryArray = mainArray
+    call the helper function that takes in (mainArray, startidx, endidx, auxiliaryArray)
+    return the array
+    in the helper function our base case is startidx = endidx return 
+    create a middleidx call the function on the left side start to middle and on the right side middle + 1 to end 
+    that will happen until the basecase is hit then we can call doMerge(mainArray, startidx, middleidx, endidx, auxiliaryArray)
+    in this we use pointers -> is a way do dereference example auxiliaryArray->at(i) or *auxiliaryArray.at(i) will go into the 
+    array and change the value
+    
+
+QuickSort:
+    Space Complexity O(n) Time Complexity Worstcase:O(n^2), Best Case: O(nlog(n))
+    Not a stable algorithm
+    Pivot will be equal to array[0];
+    leftP will start at array[1];
+    rightP will start at array[array.size()-1];
+    function with the array as a parameter will call the helper and return the array
+    In the helper function we set out pivot leftIdx and rightIdx we can't confuse them with startIdx and endIdx
+        we use start and end to check which subarray is smaller
+    then we travers the array with a while loop with the edge case leftIdx <= rightIdx
+        because we are going to swict the rightIdx and the pivot at the end of the traversal we want to move 
+        any number bigger than the pivot to the back and anything smaller than the pivot closer to the front 
+        rightIdx will always be at idx which value is smaller than the pivot value
+        leftIdx will keep moving left as long as its value is smaller than the pivot
+        if(leftIdx > pivot && rightIdx < pivot) switch
+        when the while loop breaks we know that leftIdx moved past the rightIdx and didn't find anything bigger than pivot
+    rightIdx will always be smaller than pivot so we can switch them after the whilel loop
+    
+    
+

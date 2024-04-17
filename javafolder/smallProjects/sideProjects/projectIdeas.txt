@@ -1,0 +1,22 @@
+simple counter
+three buttons on screan 
+count up count down reset
+show current count
+
+quiz 
+mulitple choice questions 
+radio buttons 
+layout mulitple choice 
+submit and show how many you got correct
+
+rock paper sissors 
+left side right side 
+computer 
+user selects matched agains computer 
+win counter 
+
+memory based game 
+select difficulty 
+flash number and remove once the user starts typing or click the screen
+show correct or incorret with counters 
+and reset

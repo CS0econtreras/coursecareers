@@ -1,0 +1,48 @@
+Shell vs GUI
+    GUI is a graphical user inter facce and comes with standard with most modern operating systems
+    Sometimes necessary to use the Shell
+
+Shell types 
+    windows - cmd powerShell
+    mac - bash Shell
+
+Bash Commands
+    pwd - current working directory
+    cd - change directory one . is current directory .. parent directory 
+    clear - clears the screen cls on windows
+    ls - list of all files and directory inside the directory we are in 
+    cd ../.. up two parent levels
+    mkdir name - makes a directory 
+    touch name.txt - creates an empty files
+    mv moving-file directory-receiving-file - how to move a file into a directory
+    mv my_file.txt .. - this will move the file into the parent directory 
+    cp my_file.txt files - this copies a file into the files directory
+    (above) files/copies_file.txt - this will change the name of the copied file 
+    cp -r files new_files - will copy a directory -r is a flag for recursivly copying all the new_files
+    (above) new_files will be a copy of files in the same parent directory
+    rm -r new_files - will delete this directory
+    rm my_file.txt - this will delete the file
+    head test.js will show you the first ten lines of a file 
+    tail test.js will show the last ten lines of a file
+
+Bash Editors
+    these will let us upload code and run it 
+    nano
+        nano test.js - this lets use write javascript
+        nano myfile.txt - will let me open my file
+
+    vim
+        vim fileName.js 
+        hit the let i and it will let you start typing 
+        esc hit :q! will exit the file for me
+        :wq will save and close the file
+
+
+IDE
+    code editors
+
+
+
+
+
+    

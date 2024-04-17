@@ -1,0 +1,89 @@
+.calculator {
+    border: 2px solid grey;
+    padding: 10px;
+    display: inline-block;
+    width: 50%;
+    border-radius: 2px;
+}
+
+.result {
+    border: 1px solid grey;
+    border-radius: 1px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.result-text {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.row {
+    display: flex;
+    height: 30px;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.btn {
+    flex: 1;
+    background-color: gainsboro;
+    border: 1px solid gray;
+}
+
+.grey button {
+
+    background-color: darkgray;
+}
+
+.btn:hover {
+    opacity: 80%
+}
+
+.btn:active {
+    background-color: slategray;
+}
+
+.main-btns {
+    display: flex;
+    gap: 5px;
+}
+
+.numbers {
+    flex: 4;
+}
+
+.equal-btn {
+    flex: 1;
+    margin-top: 10px
+}
+/*
+border:
+    obviously creates the border add bold/thickness and color
+
+border-radius:
+    rounds the coners of the border
+
+padding:
+    gives the stuff inside the border padding
+
+display:
+    I don't really know what this does 
+    inline-block
+    inline-flex
+    none
+    flex: 1 the flex number divided by the elements being flexed
+    display: flex; flex-direction: row or colum; this will align all elements in a row or a colum
+
+gap: 
+    we used this to gap the buttons
+
+.btn:hover {}
+    gives feedback to see if we are hovering
+
+.btn:active {background-color: slategray;}
+*/

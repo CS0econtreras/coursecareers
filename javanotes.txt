@@ -1,0 +1,234 @@
+Casting:
+    parsInt - only for strings same with parsFloat 
+    number(x); this work for any variable type not just strings 
+    number converts bools into 1 for true and 0 for false
+    To add a number into a string concatenation "age.toString()" or "String(age)"
+    Convert bools into "true" and "false"
+    +befor a string will convert it into a int
+
+Comparison Operators:
+    const value = "hello" === "hello";
+    "===" strict comparison 
+    "!==" not strictly equal
+    .charCodeAt(index) to get the letter ascii value
+
+Array Methods
+    .toString(); - will turn array into a string
+    .shift(); removes the first index and shifts everything forward
+    .unshift(-1); insert new elements at the start of the array and return the knew length
+    .sort((a, b) => a - b); acending change the back a b for decending
+    .concat(arr2); makes a brand new array merging to arrays
+    .splice(1, 2) remove index and elements after depending on the second number "removed" outputs removed array
+    .join(",") joins all the elements together spcaed by a , it makes them a string
+    .slice(starIDX, endIDX) returns a subarray of the original array endIDX is not included
+
+Strings:
+    const str = `hello ${7 + 5 world}`; outputs "hello 13 world"
+    .length;
+    .slice(index, defaultEnd); starts at index and goes to the od the string returns new one
+    .replace(index, "char or string"); replace all replaces all chars selected
+    .toUpperCase() .toLowerCase() changes everything to uppercase or toLowerCase
+    .trim(); removes white space char from begining or end of string
+    .trimStart() .trimEnd()
+    .split(" ") Makes it an array of all the indexes looking for the indicated char
+    string += will add char at the end 
+
+for of:
+    for(const [i, s] of str.entries()){}
+    returns the index as well as the rest of the string
+
+Sets:
+    cosnt s = new set([1, 2, 3, 4, 5])
+    .add() .delete()
+    .size()
+    .has() looking for something in the set
+    const uniqueNumbers = Array.from(numbers);
+
+maps:
+    const m = new map();
+    m.set("a", 3);
+    m.has("a");
+    m.delete();
+
+objects:
+    -Can print the whole obj or just the properties can also do by writing the propery as a string
+    -
+    const obj ={
+        name: "tim",
+        children:[{name: "joe"}, {name: "sally"}], // array of children and we can access them
+    };
+    [properties, value] of object.entries() in the forloop to get both
+    Object.entries() give us an array that conatins array with the values and values
+    Object.values() example (const value of Object.values(person))
+    Object.keys() will give you the property names
+    obj.age = 13; this adds a property to the objects
+    obj.name = "joe" will change the name
+    const obj2 = { ...obj, age: 2 }; this is used to copy an object and we can add additional values
+    Mutable values arrays, sets, maps, ect...
+    deep copy javascript objects
+
+Error Handling
+    try {
+        Some code
+        throw "this is an error"; or Error{"This is an error"}
+    } catch(err) {
+        consle.log("err.message, err.name"); 
+    } finally{
+        consle.log("finally")
+    }
+
+Functions
+    function add {
+
+    }
+    return [returns array]
+    const result = math(10, 20 ); consle.log(result);
+    this will return an array with the reslut for 10 and 20 [100, 400]
+    const [result, result2] = math(20, 10);
+    consle.log(result, result2); this will return them individuly 
+    var [saveA, saveB] test(10, 20) this allows us to save a =10 and b =20
+    to the variables saveA saveB
+
+Events and This:
+    onclick
+    this used for onchange will acces the propty it was called
+    you can create a function as a property inside another function
+    ex: propName: function(){}
+    
+
+Grabing values inside a text field:
+    const username = document.getElementById("username").value;
+    onchange = "enterUsername()"/> this
+    
+Arrow Functions:
+    const func = () => returns any expression after the Arrow
+    
+Map, Filter, Reduce
+    const squares = arr.map((x) => x**2);
+    example
+
+    const arr = [1, 2,3 ,4 ,5 ,6];
+
+    function map(arr, func){
+        const newArr = [];
+        for(const value of arr){
+            const newVal = func(value);
+            newArray.push(newValue);
+        }
+        return newArr;
+    }
+    const result = map(arr, (x) => x**2);
+    console.log(result);
+
+Filter:
+    only keeps values if they pass the Filter
+    const arr = [1, 2, 3, 4 ,5 ,6];
+    const filteredArr = arr.filter((value) => value % 2 == 0);
+
+    built from scratch
+    function filter(arr, func){
+        const newArr = [];
+
+        for(const value of arr){
+            if ( func(value)){
+                newArr.push(value);
+            }
+        }
+        return newArray;
+    }
+    const result = filter(arr, (x) => x % 2 == 0);
+
+Reduce:
+    const arr = [1, 2, 3, 4 ,5 ,6];
+    const sum = arr.reduce((prev, current) =>  prev + current);
+    
+Scope:
+    var defines in the most outer scope 
+    let works in only the current block
+
+Mutability:
+    emutable - makes a copy of the variable 
+    mutable - can create a refence so we can change the initial array
+    let y = [...x]; makes a completly new array 
+    y[0][0] = 100; goes into the ref and changes what its ref to so it changes x and y
+    y[0] = [100]; replaces the refrence with the ref [100]
+    .prop add another property to our object
+
+
+Math 
+    Math.round() math is the key word and it will round up
+    Rounding to decimal place Multiply it by 10 then divide by 10
+    that will only round to the tenth
+    Math.ciel() Math.floor() to round up or down
+    Math.max(x, y) max function can take in unlimited values and output the max
+    Math.min(x, y)
+    math.min(...array) ... unpacks the array
+    Math.abs();
+    Math.log2(9);
+    Infinity usful for comparing -Infinity
+
+Random 
+    Math.random() gives you a random number between 0-1;
+    Math.round(Math.random() * 10);
+    Multiply Math.random by 10 in order to get a number between 1-10
+    between 10 and 20 we would just add 10 + Math.round(Math.random() * 10)
+    generating a number betweena min and a max 
+    Math.floor does not include the max Math.round() will include the Max
+    function randomNum(min, max){
+        return Math.floor(Math.random() * (max-min)) + min;
+    }
+    multiplying Math.random() * any value scales the random number to be between [0, anyVal)
+    adding a val to that (Math.random() * (max-min)) + min; "+ min" scales the random num to start from min
+    [min, max)
+
+Sorting
+    .sort() will sort based on ACII values 
+    custom sort function below in the () do this to sort by int
+    num.sort((a, b) => a - b); do this for acending order
+    (b, a) would be in decending order
+    .reverse()
+
+protypes
+    Another object that is linked to an object you created
+    you can get access to this by:
+    objectName.__proto__
+    *Object.getPrototypeOf(objectName)
+    If I objectName.toString() which is just a function name
+    Two things can happen 
+    1: we find that in the object and run it 
+    2: we don't find it so we go to the protype and see if the 
+        function is defined there 
+    Below is how to create a protype for an object
+        const tim = Object.create(personPrototype/nameOfObj)
+    Creating the prototype helps access the functions and use the functions in 
+    different ways without redoing the function 
+
+Classes and objects
+   class Person {
+    name;
+    age;
+
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    say
+   } 
+
+Attributes and Methods
+    encapsulation so that we can hide Attributes
+    #attribute will make the attribue private 
+    
+Static attributes and methods 
+    They are only associated with the class and not the instance 
+    This means every instance will have the same number or method that can be used
+    mostly usesed for getters and setters 
+
+Inheritance 
+    inherite base level functionality and use that throught different Classes
+    In my js example i would be able to access all the attributes and methods
+    in the Persons class and use it as if I was using the Persons class
+    This is good because I can extend the functionality 
+    
+
+

@@ -1,0 +1,5 @@
+git init - creates an empty git repo with a .gitfoulder invisable
+git status - branch, untracked files 
+git add name - will add changes that are ready to be committed adds into staging area
+git add . - will include all changed files 
+

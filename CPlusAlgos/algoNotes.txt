@@ -83,10 +83,35 @@ Classes:
      necessary setup for an object when it's created
     -
 
-InsertionSort:
+InsertionSort: stable
+    Time complexiity: O(n^2) because we go throught the array as many time as need till sorted
+    Space complexity: O(1) beacuse we are not adding any additional space everything is done in the smae array
+    To remeber in insertionSort that we go through every element and check backwards
+    for loop with while loop inside
+    each number will be compared to the previous and is it is smaller the the prev swap
+    decrement and ceep comparing that number
 
+SelectionSort: not stable
+    Time complexiity: O(n^2) because we go throught the array as many time as need till sorted
+    Space complexity: O(1) beacuse we are not adding any additional space everything is done in the smae array
+    In this one we want to find the min of the array each time and swap it with the front
+    For this we need to keep track of the sorted numbers so we don't keep going back into the array
+    Use a while loop to hold the place of the sorted/staring point of the array
+    use a For loop to find the min makin i == to the starting/sorted point so we don't itereate the whole array every time
 
-MergeSort:
+BubbleSort: stable
+    Time complexiity: O(n^2) because we go throught the array as many time as need till sorted
+    Space complexity: O(1) beacuse we are not adding any additional space everything is done in the smae array
+    If we swap elements we keep the loops going
+    bubbleSort is cool beecause you can use a bool to check if the array is sorted and return it
+    bubble sort swaps all the small numbers from the begining of the array to the back
+    we can iterate throught the array with a bool that is true but changed to false if a specific operatation is done on the array
+    we know that if we have to swap !arraySorted so when it's true we can 
+    we also threw in a counter and subtracted it from array.size() - 1 - counter 
+    all of this is done with a while loop that checks the bool and the forloop tailored to exlude the end of the array that is already sorted
+    for (int i = 0; i < array.size() - 1 - counter)  counter is incremented every while loop
+
+MergeSort: stable
     First Way
     Take in an array and use base case array.size() <= 1 return array
     create a middleIdx and create completly knew arrays splitting the array in half
@@ -104,7 +129,7 @@ MergeSort:
     array and change the value
     
 
-QuickSort:
+QuickSort: not stable 
     Space Complexity O(n) Time Complexity Worstcase:O(n^2), Best Case: O(nlog(n))
     Not a stable algorithm
     Pivot will be equal to array[0];
@@ -123,4 +148,3 @@ QuickSort:
     rightIdx will always be smaller than pivot so we can switch them after the whilel loop
     
     
-

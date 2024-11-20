@@ -1,0 +1,676 @@
+Introduction to go
+    good for cloud and network services
+    command line interfaces
+    web development
+    automation and devops
+    utilites and stand-alone tools
+
+
+Different Programing languages
+    Static vs Dynamic languages
+    java sctipt is good for frontend
+    go is good for backend development
+
+Interpreter and Compilers
+    The code we write is source code converted into byte code assembly
+    The converstion is done by Compilers
+    Compiler take the source code and then execute it from the processor of the computer we can execute the code
+    Interpreter transforma and executes our source code one line at at a time
+    JavaScript is interpreted language and go is a compiled language
+    compiler can be a lot faster and catch a lot of errors that arent caught at run time
+    compiled languages are more strict
+
+Dynamic vs Static typing 
+    javaScript is a dynamic language go is a Static
+    In a static language variables cant be changed to a different type
+    In a Dynamic language we can change the type of variable which can make it slower because we are unsuer of the type
+
+
+Creating a go program 
+    Create a file demo.go   // this will create a go file for our first go Programing
+
+    Here we add the package an imports neede for a go program to run and well as out main function
+    package main
+
+    import "fmt"
+
+    func main() {
+        fmt.Println("Hello, World")
+    }
+
+Running a go program 
+
+    go run demo.go  //this will run the demo.go file
+    //creates a tempery compiled file then running using the cpu
+
+    go build demo.go 
+    // this command only build the file and doesn't run the code through the cpu
+    // on mac i get demo on windows i get demo.exe 
+    // to execute that file i can do ./demo for mac and demo.exe for windows
+    // I can also give that to someone and the can execute it without having thier enviorment set up
+
+    // comiler will throw an error if something is imported and not used 
+    // everything imported must be used
+
+Binary number system
+    Base 10
+    // we can write numbers 0-9
+    // 374  index 2, 1, 0 starting from left to right
+    // how to calulate
+    // 3 = 3 x 10^2, 7 = 7 x 10^1, 4 = 4 x 10^0 then you add all those up
+    // this works for any numbering system
+    // Binary is base to 0 and 1
+
+    example
+    76543210
+    11100011
+    //starting from the right
+    1 x 2^0 + 1 x 2^1 + 0 x 2^2 + 0 2^3 + 0 x 2^4 + 1 x 2^5...
+    zeros and ones are bits
+    byte = 8 bits 
+    number of values we can represent base 2^8 8 being the number of bits we have
+    range of values for 8 bits is 0 - 255 one less than 2^8 
+    sign are numbers that include negative numbers
+    to show its singed we add an additoinal bit to the front of the binary number 1 is negative 0 is positive
+    //Finding min and max of a binary number
+    2^8-1 - 1 = max  -2^8-1 = min 
+
+Data Types and variables
+
+    uint will default to the uint32 or uint64
+    uint is an unsigned int 
+    int is a sign which represents negative numbers too and it will also default
+   
+    float32 or float64 which will represent decimals
+
+    byte = int8 stores numbers or charachters 
+
+    rune = int32 represent a charachter 
+
+    bool True of False 
+
+    nil = null
+
+    Creating the variables 
+        var is a variable that can change and const is one that can't change
+        var x string 
+
+Implicit Assignment
+    explcit is when im manually writing it out vay x uint8 = 2
+    y := 3 this implies what the type is by what it stored in the variable
+
+    fmt.Printf("%t", x) //this will print the type of the variable x
+    fmt.Println(y)
+
+    //only use the explcit method when I don't want to assign a value to it i just want the variable ready to use
+    //make sure im not typecasting int to uint or a uint into an int or int's that are too small
+    Example of typecasting
+    var myUint uint = 10
+    myInt := int(myUint)
+
+Console Output
+    Println("hello", 2, x) //always has "/n" at the end
+    Printf("%T", x) output = the variable type of x //(template/format, argument)
+    "%V" is used to emmbed variables into a string 
+    "%e" will give you scientific notation
+    "%s" 
+    "%d" format code is used to print an integer 
+    "%.2f" will output will give you two decimal places adding 2 %%will add the % sign
+    Sprintf(" ", x) creates a string and we can print it out later
+
+Switch 
+    package main
+
+    import "fmt"
+
+    func main() {
+        a := 1
+
+        switch a {      //this is a non-naked switch statment and we won't fall through once we hit a case so it will break
+
+            case 1:
+                fmt.Println("one")
+            case 2:
+                fmt.Println("two")
+            case 2:
+                fmt.Println("three")
+        }
+
+    }
+
+    //you can write conditions for all you different conditions
+    //example:
+            case a <= 1:
+            fmt.Println("one")
+            fallthrough         //this will continue falling through the diffrernt cases
+    
+    //we can also check for multiple values we are checking for inside the switch statment
+    case a == "a", a == "b", a == "c":
+        fmt.Println("a is am b or c")
+
+Looping
+
+    //FORLOOP
+    package main
+
+    import "fmt"
+
+    func main() {
+        for idx := 0; idx < 10; idx++ {
+            fmt.Println(idx)
+        }
+    }
+
+    //WHILELOOP
+    //we don't have access to one so we need to use the forloop syntax
+    package main
+
+    import "fmt"
+
+    func main() {
+        a := 1
+        for a < 10 {
+            fmt.Println("loop")
+            a++
+        }
+    }
+
+    //LOOPING THROUGH STRINGS
+    package main
+
+    import "fmt"
+
+    func main() {
+        str := "hello world"
+
+        fmt.Println(str[0])  //this will give us 104 because strings are slices of char or bytes first on the string 
+        fmt.Println(string(str[0]))  //this is how you you would get the actual charachter at index 0
+    }
+
+    ASCII 1 byte 256 american standared code information I we needed more charachtert so UTF-8 came out
+    UTF-8 4 byte
+
+    RANGE 
+    // allows the index and the charachter of the index it will handel all the special cher for us
+    package main
+
+    import "fmt"
+
+    func main() {
+        str := "hello world"
+
+        for _, char :=range str { //_ is a place holder since i don't care for i
+            fmt.Printf("%c", char)
+        }
+    }
+    //each char will be int32 which is the rune type
+
+Arrays
+    package
+
+    import "fmt"
+
+    func main (){
+        var arr [2]int   //can not change size of the array output would be 0 ,0
+        fmt.Println(arr)
+    }
+
+    //setting the values of my arr
+    arr := [2]int{1, 2}         //arr literal writing out the values of my Arrays
+    // another way to write a array literal compiler will count the values and initalize the array for you
+    arr := [...][2]int {{1,2}, {2, 2}, {3, 2}}
+
+    Index access to Arrays
+    arr[0] = [2]int{10, 11} 
+    //you need litrally create the array in  order to add it as
+    //one of the elements in the new array then you can nest it in the another array
+    fmt.Println(len(arr)) will give you the length of the array
+
+    for i, value := range arr {
+        fmt.Println(i, value)
+    }
+
+    Array passed into a function
+    package
+
+    import "fmt"
+
+    func main (){
+        arr := [...][2]int{{1, 2}, {2,2}, {3,2}}
+        test(arr)
+    }                                   //This passes a copy and we actually need to pass in a pointer to the og array
+
+    func test([3][2]int) {
+        arr[0] = [2]int{100, 100}
+    }
+
+Slices 
+    //flexable version of arrays which is a view of an array and increase or decrease capacity
+    package 
+
+    import "fmt"
+
+    func main (){
+        arr := [5]int{1, 2, 3, 4, 5}
+        sl := arr[1:3]  
+        fmt.Println(sl)  //this will print index 1 through 3 which will be 2 3 and 4
+    }
+    //any change made to the the slice will change the array
+    //slice = pointer, length, capacity
+    //you can just create a slice if you want 
+    
+    make() function
+        sl := make([int], 10, 20)   len = 10 cap = 20 
+
+    //slices will be mutated when passed into a function 
+
+Maps
+    package
+
+    import "fmt"
+
+    func main () {
+        var mp map[string]int = map[string]int{"a" : 1} //need the currlies but dont need to add anything
+    }
+
+    //others ways to make it 
+    mp := make(map[string]int)
+    mp := map[string][]int{"a" : {1, 2 ,3}}   map[string][]int = type  with a slice of int's
+    
+    Adding/Deleting values
+        mp["b"] = []int{1, 2, 3} //adding a key into the map
+        delete(mp, "b")
+
+    Finding values in a map
+        value, ok := mp["b"]
+
+Functions
+    package
+
+    import "fmt"
+
+    func add(num1 int, num2 int) int {    //specify all types for the functions
+        return num1 + num2                //we return multiple values 
+    }
+
+    main func() {
+
+    }
+
+    Functions as perameters inside another function 
+
+        func callFunc(callable func(int)int) int {  //here you can take in a function that takes in an int and retruns one
+            return callable(10)
+        }
+
+        func doubleNumber(num int) int {
+            return 2 * num
+        }
+
+    Annoymous functions
+        value := callFunc(func(xint)int{
+            return x + 1
+        })
+
+        f1 := func(x int) int {
+            return x + 1
+        }
+
+    Return functions from a function
+        func get func(str string ) func(string) string {
+            return func(str2 string) string {
+                return str + str2
+            }
+        }
+        f1 := getFunc("hello")
+        value := f1(")
+
+    accepting positional arguments 
+        sum(nums ...int) int {
+            //i can call this function with as many numbers as i want gets taken in as a slice but the will be individule
+        }
+        s := sum(4, 5, 6, 10)
+        fmtPrintln(s)
+        s := sum([]int{1, 2 ,3, 4 ,5}...)   //this is calling sums and taking in a slice which shouldn't works
+                                            //The reason it works is because of the ... which takes the slice and passes in each element
+                                            //Only works with a variatic parameter
+    
+    Named Return values 
+        func sum(nums ...int) (s int, s2 int) {
+            return
+        }
+        //this function will return s and s2 when we hit the return statment here they are default to 0
+
+Struct 
+    replacment of a class
+    package main 
+     
+    import "fmt"
+
+    type Person struct {
+        name string 
+        age uint
+    }
+
+    func main() {
+        p1 := Person{age: 23}
+        p1.name = :"Tim"
+        fmt.Println(p1)
+    }
+
+    writing a function refering to the struct we want the function to act on
+    func (p Person) getName() string {
+        return p.name
+    }                                       
+        //Here we made a method a function that will act on the struct Person
+        //getName() is the name of the method 
+        //(p Person) p acts as the this keyword
+        //string is the return type 
+        //how to use it on any instance of that method:
+        var p1 Person = Person{age: 23}
+        //capitals make the struct values exported and same with functions for a struct
+
+    Emmbeded structs 
+        type Sport struct {
+            name string 
+            position string
+        }
+
+        type Person struct{
+            name string
+            age uint
+            favSport Sport
+        }
+
+        func main(){
+            p1 := Person(age: 23, name: "Tim", favSport: sport("Soccer", "D"))
+        }
+
+Interfaces:
+    //defines a series of methods for struct to be the type of the methods
+    package main
+    import "fmt"
+    
+    type Shape interface {    //needs to be a cap first letter its also not an instance
+        getPerimeter() uint   //Here we create a bunch of different methods
+    }
+
+    type Square struct {
+        width uint
+    }
+    
+    func (s Square) getPerimeter() uint {
+        return 4 * s.width
+    }
+
+    type Triangle struct {
+        a uint
+        b uint
+        c uint
+    }
+
+    func (t Triangle) getPerimeter() uint {
+        return t.a + t.b + t.c
+    }
+
+    func (t Triandle) getSides() []uint {
+        return []uint{t.a, t.b, t.c}
+    }
+
+    func main() {
+        var s Shape = Triangle{1, 2, 3}     //Here we made s the Shape interface
+        fmt.Println(s.getPerimeter)
+    }
+
+Error handling
+    run time errors 
+        panic("this caused a crash")    //we can actually place one in our code
+        //anything after a panic will not run
+        defer //this will make something be the last thing to be run
+        defer defferedFinc()
+        fmt.Println(r)      //this will show you the error
+    
+    Getting passed a panic error
+        r := recover()  //use this 
+
+
+    rather than panicing we can call a function by adding the errors package with fmt
+
+Generics
+     A function that we can use for different types of 
+
+    package main
+
+    import "fmt"
+
+    //Better way initializing the generic type using a interface
+    type Number interface {
+        int | float64 | uint
+    }
+
+    //I would change my types to Number in my add function/generic    
+
+    //defining a generic when we want to use a function to be compatible with multiple int types exc..
+    func add[T int | float64](x T, y T) T {     //both int or both float 
+        var sum T = x + y   \\variable is of type T 
+        return x + y
+    }
+
+    func getValue[K comparable, V any](mp map[K]V) []V{ //comparable has to be on the key for the map
+        values:= []V{}
+
+        for _,value := range mp {
+            values = append(values, value)
+        }
+
+        return values
+    }
+
+    func main(){
+        value := add(2, 3)
+        value2 := add(uint(2), uint(7))
+        vlaue3 := add(34.5, 54.3)
+        fmt.Println(value, value2, value3)
+
+
+        mp := map[string]int{"a" : 100, "b": 5, "c": 1, "d": 5}
+        values := getValues(mp)
+        fmt.Println(values)
+    }
+
+    Using generics in a struct and different types
+    package main 
+    
+    import "fmt"
+
+    type GenericSlice[T any] []T
+
+    func (g GenericSlice[T any] Print()){
+        for _, value := range g {
+            fmt.Println(value)
+        }
+    }
+
+    type GenericStruct[T any] struct {
+        values
+    }
+
+    func main(){
+        g := GenericSlice[int]{1, 2, 3}
+        g.Print()
+    }
+
+Pointers and References
+    reference 
+        x := 0
+        y := &x
+    
+    Using them in functions
+    package main
+
+    import "fmt"
+
+    func change(*x int) {  //we passed a pointer so we can change the value in the main function
+        *x = 100
+    }
+
+    func main() {
+        a := 10
+        change(&a)         //in our function we passed the reference to the change function
+    }
+
+    using a pointer to modify structs
+    package main
+
+    import "fmt"
+
+    type Book struct {
+        id int
+        title string
+    }
+
+    func (b *Book) setTitle(title string){ //this is a method that ties the setTitle function to the book struct
+        b.title = title
+    }
+
+    func main() {
+        a := 10
+        change(&a)         //in our function we passed the reference to the change function
+        b := Book(10, "old")
+        b.setTitle("New")
+    }
+
+Threading and Concurrency 
+    //making multiple threads we can make it faster by distributing those threads to multpel cpu cores to run it all at once
+    //this all alows you to run multple applications and more on one computer
+    //thread pool and our os determines which threads need to be executed and it will pass it to cpu cores to work seemlesly
+    //one cpu core will switch through all the different threads concurrently 
+    //mulitple cpu cores working on threads is parralel
+    //our job is to create the threads so the cpu can assign them to different cpu cores
+
+Go Routines 
+    //implementation of concurrency in go by creating light weight threads
+    package main
+    
+    import {
+        "fmt"
+        "time"
+    }
+
+    func run() {
+        time.Sleep(2 * time.Second)
+        fmt.Println("run")
+    }
+
+    func run2() {
+        time.Sleep(4 * time.Second)
+        fmt.Println("run2")
+    }
+
+    func run3() {
+        time.Sleep(6 * time.Second)
+        fmt.Println("run3")
+    }
+    func main(){
+        go run()        //go create a thread to run each funciton on different cores
+        go run2()
+        go run3()
+        time.sleep(7 * time.Second)//this gives us enough time for the functions to finish executing
+        fmt.Println("Done)
+    }
+
+    Waiting for a go Routines to finish running
+    package main 
+
+    import {
+        "fmt"
+        "time"
+    }
+
+    func add(x int, y int, ch chan int) int {
+        ch <- x + y
+    }
+
+    func main() {               //creating a channel
+        ch := make(chan int)
+        x := go add(5, 10)
+        x := <- ch              //this line blocks code until i recieve something from that channel
+        fmt.Println(x)  
+    }
+    
+    Multiple go channels at once 
+    package main
+
+    import {
+        "fmt"
+        "time"
+    }
+
+    func add(x int, y int, ch chan int, delay int){
+        time.Sleep(time.Duration(delay) * time.Second)
+        fmt.Println(x + y)
+        ch <- x + y
+    }
+
+    func main() {
+        ch := make(chan int)
+        ch2 := make(chan int)
+
+        go add(10, 5, ch, 4)
+        go add(20, 15, ch2, 2)
+
+        x := <- ch
+        y := <- cha2
+
+        //better way to return whatever finishes first no matter what
+
+        select {
+            case x := <- ch:
+                fmt.Println(x)
+            case y := <- ch2:
+                fmt.Println(y)
+        }
+        fmt.Println(x, y)
+    }
+    //To get the code two of how go routines to run we can put it in a forloop
+    for i := 0; i < 2; i++{
+        select {
+            case x := <- ch:
+                fmt.Println(x)
+            case y := <- ch2:
+                fmt.Println(y)
+        }
+        fmt.Println(x, y)
+    }
+
+    Directoinal channels
+        func add(x int, y int, ch chan <- int, delay int) { //here we can send to the channel but can not recieve
+            time.Sleep(time.Duration(delay) * time.Second)
+            ch <- x + y
+        }
+
+    Buffer channel
+        ch := make(cahn bool, 2) //we can only have two values returned to the channel
+        only on an empty receive or a full send we block 
+
+API 
+    //adding the Api framework to the project you are working on use these commands do this in go dir
+    go mod init example/nameOfDir
+    go get github.com/gin-gonic/gin
+
+    package main
+
+    import (
+        "net/http"
+        "github.com/gin-gonic/gin"
+        "errors"
+    )
+
+    type book struct {
+        ID          stirng  `json"id"`          //the json lets it be converted into json
+        Title       string  `json:"title"`      //Capitals in the variable gives us access to them in other modules or an expoerted field
+        Author      string  `json:"author"`     //when its converted to jason it turns the field case to a lowercase
+        Quantity    int     `json:"quantity"`   //done with the lowercase jason
+    }
+
+    func getBooks(c *gin.Context) //

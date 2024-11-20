@@ -1,0 +1,44 @@
+JavaScript Promises
+    used to inegrate frontend and back end with an api
+    we get resolved promise or a rejected Promise 
+    example:
+        const p = new Promise((resolve, reject) => {
+            if (true){
+                setTimeout(() => resolved("it worked"), 2000)
+            }else{
+                reject("it failed")
+            }
+        });
+
+        p.then((datta) => {
+            consle.log(data);
+        }).catch((error) => {
+            consle.log(error);
+        });
+
+        consle.log(p);
+
+Asynchronous
+
+        const addFriend = new Promise((resolve, reject), => {
+            setTimeout(() => { resolve({status: "success}), 2000});
+        })
+
+        async function getResult(){
+            cosnle.log("Sart");
+            await addFriend.then((data) => consle.log(data));
+            consle.log("done")
+        }
+
+Project Ideas:
+    Task manager 
+    Weather forcast
+    Note taking app
+    Quiz app
+    Blogging platform
+    Book review site 
+    Event planner
+    recipe app
+    Flash card study app
+    Travel Diary
+    

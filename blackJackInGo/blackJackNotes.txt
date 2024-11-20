@@ -1,0 +1,27 @@
+black jack game blue print
+
+-create a struct for a card with a value and a suit
+    pass by value method for card struct to display the card by string
+    
+-create struct for the deck of cards
+    method to populate the struct the slice of cards with 52 cards
+    method to shuffle the 52 cards 
+    method to deal some cards
+
+-create struct for game with deck dealer cards and player cards and the deck
+    method with pointer reciever dealStartingCards
+    method with pointer reciever play
+    method with pointer reciever dealerTurn
+    method with pointer reciever playerTurn
+
+Helper Functions 
+    enterString ??
+    gerCardValues add up my cards 
+    isPlayerWinner check if the player won
+    shouldDealerHit
+    isBlackJack
+    displayCards
+
+Main func calls
+
+

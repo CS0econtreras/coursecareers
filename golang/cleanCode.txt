@@ -1,0 +1,40 @@
+If statements
+    describe them and then enter them into an if statement
+    example:
+        let isOldEnough = user.age >= movie.ageLimit;
+        let isInAvailableCountry = move.isAvailableInCountry(user.country)
+
+        if(isOldEnough && isAvailableInCountry){
+            run the code
+        }
+
+Shot circuit logic
+    in an if stament like the one above put the condidtion most likely to be false first so we don't have to check the second condidtion
+    everytime
+
+Unit testing
+    
+
+Integration testing
+    unit test all grouped and tested together to make sure all of the components of a sofware or system work together
+
+End to end testing
+    testing to validated the entire software product from start to finish
+
+
+Writing a unit test 
+    Set up an npm project with all the default options: npm init 
+    Install the frame work that we need: npm install --save-dev jest
+    Change the 'scripts' depenencies: "test": "jest"
+    creating the file for testing: code.test.js
+    test and it do the exact same thing
+
+    const describe = require("yargs")
+    cosnt code = require("./code) //this imports code to be tested form code file
+
+    describe("Test add function", () =>{
+        test("1 + 2 = 3", => {
+            const result = code.add(1, 2)
+            expect(result).toEqual(3)
+        })
+    })

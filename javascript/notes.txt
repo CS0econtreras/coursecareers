@@ -1,0 +1,78 @@
+JavaScript Promises
+    used to inegrate frontend and back end with an api
+    we get resolved promise or a rejected Promise 
+    example:
+        const p = new Promise((resolve, reject) => {
+            if (true){
+                setTimeout(() => resolved("it worked"), 2000)
+            }else{
+                reject("it failed")
+            }
+        });
+
+        p.then((datta) => {
+            consle.log(data);
+        }).catch((error) => {
+            consle.log(error);
+        });
+
+        consle.log(p);
+
+Asynchronous
+
+        const addFriend = new Promise((resolve, reject), => {
+            setTimeout(() => { resolve({status: "success}), 2000});
+        })
+
+        async function getResult(){
+            cosnle.log("Sart");
+            await addFriend.then((data) => consle.log(data));
+            consle.log("done")
+        }
+
+Project Ideas:
+    Task manager 
+    Weather forcast
+    Note taking app
+    Quiz app
+    Blogging platform
+    Book review site 
+    Event planner
+    recipe app
+    Flash card study app
+    Travel Diary
+    
+Forloop
+        for (let i = 0; i < 5; i+) {
+        console.log(i);
+    }
+
+    \\This forloop creates an object with key/property = person.name
+    \\The value = friends: {friends: person.freinds, loyalFreinds: 0}
+    const newPeople = {}
+    for(const person of people){
+        newPeople[person.name] = {friends: person.friends, loyalFriends: 0}
+    }
+    
+Getting user input 
+    Run command: npm install prompt-sync
+    const prompt = require('prompt-sync')(); //enter this at the top of the file to make it work
+    let enterdMin = prompt("Enter smaller number: ");
+
+Strings 
+    .push("s") //this is how you push something to string
+    .charAt(i) will get you the char at the index if
+
+Objects
+    const testObject = [{name: "tim", freinds: ["john", "sally"]}]
+    The single element inside the array is an object ({}).
+    This object has two properties: name and freinds.
+    they have a property/key
+    const newPeople = {}
+    for (const person of people) {
+        newPeople[person.name] = {friends: person.friends, loyalFriends: 0}
+    }
+    //the code above is creates an object and make the key == person.name and the values are their freinds and loyal friends
+
+Grabbing values form input fields of my html file
+    const todo = document.getElementById("id of inputbox").value

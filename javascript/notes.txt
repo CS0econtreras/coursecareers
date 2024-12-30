@@ -62,6 +62,9 @@ Getting user input
 Strings 
     .push("s") //this is how you push something to string
     .charAt(i) will get you the char at the index if
+    for (const index of string) // i can iterate through a string
+    The sentence.length property in JavaScript gives the total number of characters in the string, including:
+    Letters,Spaces, Digits, Special Characters
 
 Objects
     const testObject = [{name: "tim", freinds: ["john", "sally"]}]
@@ -76,3 +79,12 @@ Objects
 
 Grabbing values form input fields of my html file
     const todo = document.getElementById("id of inputbox").value
+
+Array
+    .includes() this will look in the array for whatever you put in the ()
+    // Using the spread operator to insert all elements of array1 into array2
+    const array1 = [1, 2, 3];
+    const array2 = [4, 5, 6];
+    const combinedArray = [...array1, ...array2];
+
+    

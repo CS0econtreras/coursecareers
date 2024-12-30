@@ -87,4 +87,11 @@ Array
     const array2 = [4, 5, 6];
     const combinedArray = [...array1, ...array2];
 
+Tuples 
+    represented by using arrays 
+    const tuple = [1, "Hello", true];
+    same built in function as an array
+    access would look like:
+    tuple[0][1][2]
+
     

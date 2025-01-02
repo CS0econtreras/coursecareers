@@ -94,4 +94,31 @@ Tuples
     access would look like:
     tuple[0][1][2]
 
+Map
+    map creation: 
+        const myMap = new Map();
+    Use the set method to add or update key-value pairs: 
+        myMap.set("name", "Ezequiel");
+    Use the get method to retrieve the value associated with a key: 
+        console.log(myMap.get("name")); // "John"
+    has: Check if a key exists: 
+        console.log(myMap.has("name")); // true
+    size: Get the number of entries in the map:
+        console.log(myMap.size);
+    delete: Remove a specific key-value pair:
+        myMap.delete("age");
+    clear: Remove all entries:
+        myMap.clear();
+    Iterating Over a Map:
+        for (const [key, value] of myMap) {
+            console.log(`${key}: ${value}`);
+        }
+    keys: Get all keys:
+        for (const key of myMap.keys()) {
+            console.log(key);
+        }
+    values: Get all values:
+        for (const value of myMap.values()) {
+            console.log(value);
+        }
     

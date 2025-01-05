@@ -1,15 +1,22 @@
 function findUniqueCharacters (str) {
-    const uniqueChars = new Map();
+    let uniqueChars = '';
+    const charCount = {};
+//in this object i am checking for indefined keys and defining them
     for (const char of str) {
-        if (uniqueChars.has(char)) {
-            uniqueChars.values += 1;
-        }
-        else{
-            uniqueChars.set(char, 1)
+        if (charCount[char] === undefined) {
+            charCount[char] = 1;
+        }else{
+            charCount[char] += 1;
         }
     }
-    console.log(uniqueChars);
+//Here we are going through the string and if the char is === 1 we enter it int a string of unique chars
+    for (const char of str) {
+        if (charCount[char] === 1) {
+            uniqueChars += char
+        }
+    }
+    return uniqueChars;
 }
 
-const result = findUniqueCharacters("yyyy");
-console.log(result);
+const result = findUniqueCharacters("ezequiel");
+console.log(result)

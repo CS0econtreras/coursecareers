@@ -76,6 +76,22 @@ Objects
         newPeople[person.name] = {friends: person.friends, loyalFriends: 0}
     }
     //the code above is creates an object and make the key == person.name and the values are their freinds and loyal friends
+    you can use on object as a map as long as the key is a string anything more complicated will need a map
+
+    Built in functions
+    1. Object.keys()
+        Gets an array of the keys (property names) of an object.
+        const obj = { name: "Ezequiel", age: 25, city: "New York" };
+        console.log(Object.keys(obj)); // ['name', 'age', 'city']
+
+    2. Object.values()
+        Gets an array of the values of an object.
+        console.log(Object.values(obj)); // ['Ezequiel', 25, 'New York']
+
+    3. Object.entries()
+        Gets an array of [key, value] pairs.
+        console.log(Object.entries(obj)); 
+        // [['name', 'Ezequiel'], ['age', 25], ['city', 'New York']]
 
 Grabbing values form input fields of my html file
     const todo = document.getElementById("id of inputbox").value

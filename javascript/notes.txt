@@ -53,6 +53,14 @@ Forloop
     for(const person of people){
         newPeople[person.name] = {friends: person.friends, loyalFriends: 0}
     }
+
+    Use i incase of needing to keep track of the index
+    Hybrid example where we keep track of the index and the value:
+        const numbers = [10, 20, 30, 40];
+
+        for (const [i, value] of numbers.entries()) {
+            console.log(`Index: ${i}, Value: ${value}`);
+        }
     
 Getting user input 
     Run command: npm install prompt-sync
@@ -65,6 +73,11 @@ Strings
     for (const index of string) // i can iterate through a string
     The sentence.length property in JavaScript gives the total number of characters in the string, including:
     Letters,Spaces, Digits, Special Characters
+    Getting all chars out of of a string use .toLowerCase()
+        if ((char >= 'A' && char <= 'Z') || (char >= 'a' && char <= 'z') || (char >= '0' && char <= '9'))
+        //This one will any char that is not a space or a command
+        if (str[i] !== " " && str[i] !== ",") 
+
 
 Objects
     const testObject = [{name: "tim", freinds: ["john", "sally"]}]
@@ -93,6 +106,48 @@ Objects
         console.log(Object.entries(obj)); 
         // [['name', 'Ezequiel'], ['age', 25], ['city', 'New York']]
 
+    creating a key for an object in an array:
+        const books = [
+        { title: 'Book A', author: 'Author 1', year: 2000 },
+        { title: 'Book B', author: 'Author 2', year: 2005 },
+        { title: 'Book A', author: 'Author 1', year: 2001 },
+        ];
+
+
+        const key = `${title} by ${author}`;
+
+    .reduce callback function 
+        Used to reduce an array to a single value or a new object by accumulating results through a callback function.
+        const aggregatedBooks = books.reduce((acc, {title, author, year}) => { //books is an array of objects
+        const key = `${title} by ${author}`;
+        if (!acc[key]) {
+            acc[key] = {title, author, years: [year]};
+        }
+        else {
+            acc[key].years.push(year);
+        }
+        return acc;
+    } ,{});
+    //I took books from above and made it another object with key "title by author" value {with the titlet auther and year as keys 
+    //and the content as the value}
+    {
+    'The Great Gatsby by F. Scott Fitzgerald': {
+    title: 'The Great Gatsby',
+    author: 'F. Scott Fitzgerald',
+    years: [ 1925, 2020 ]
+    },
+    '1984 by George Orwell': { title: '1984', author: 'George Orwell', years: [ 1949, 1983 ] }
+    }
+
+    .map() callback function
+        Used to transform each element in an array into a new form, resulting in an array of the same length.
+        in this example we used the map function to take the values from the keys and make the elements in the array
+
+        return Object.values(aggregatedBooks).map((book) => {
+            return `${book.title} by ${book.author} (${book.years.join(", ")})`
+        });
+
+
 Grabbing values form input fields of my html file
     const todo = document.getElementById("id of inputbox").value
 
@@ -102,6 +157,10 @@ Array
     const array1 = [1, 2, 3];
     const array2 = [4, 5, 6];
     const combinedArray = [...array1, ...array2];
+    .length === 0 
+    .reduce() is an array method, not an object function. 
+    It is used to process an array and reduce it to a single value, such as a sum, product, 
+    or any aggregated result, by applying a callback function to each element in the array.
 
 Tuples 
     represented by using arrays 
@@ -138,3 +197,4 @@ Map
             console.log(value);
         }
     
+

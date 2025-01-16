@@ -8,7 +8,7 @@ function mergeAndFormat (books, format) {
             acc[key].years.push(year);
         }
         return acc;
-    } ,{});
+    }, {});
 
      if (format === "string") {return Object.values(aggregatedBooks).map((book) => {
             return `${book.title} by ${book.author} (${book.years.join(", ")})`

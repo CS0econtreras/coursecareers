@@ -19,6 +19,6 @@ body {
   width: 34px;
 }
 
-.board-row {
+.square-rows {
   display: flex;
 }

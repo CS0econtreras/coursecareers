@@ -125,19 +125,79 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func flatenBST(head *TreeNode) []int {
-	return []int{}
+func flatenBST(root *TreeNode, min int, max int) []int {
+	result := []int{}
+	traverse(root, min, max, &result)
+	return result
 }
 
+func traverse(node *TreeNode, min int, max int, result *[]int) {
+	if node == nil {
+		return
+	}
+	if node.Value > min {
+		traverse(node.Left, min, max, result)
+	}
+	if node.Value >= min && node.Value <= max {
+		*result = append(*result, node.Value)
+	}
+	if node.Value < max {
+		traverse(node.Right, min, max, result)
+	}
+}
+
+type Set[T comparable] struct {
+	elements map[T]bool
+}
+
+func NewSet[T comparable]() *Set[T] {
+	return &Set[T]{
+		elements: make(map[T]bool),
+	}
+}
+
+func (s *Set[T]) Add(element T) {
+	s.elements[element] = true
+}
+
+func (s *Set[T]) Remove(element T) {
+	delete(s.elements, element)
+}
+
+func (s *Set[T]) Contains(element T) bool {
+	_, exist := s.elements[element]
+	return exist
+}
+
+func (s *Set[T]) Size() int {
+	return len(s.elements)
+}
 func main() {
+	head := &TreeNode{Value: 20}
+	head.Left = &TreeNode{Value: 10}
+	head.Left.Right = &TreeNode{Value: 15}
+	head.Left.Left = &TreeNode{Value: 5}
+	head.Right = &TreeNode{Value: 30}
+	head.Right.Right = &TreeNode{Value: 35}
+	fmt.Println(flatenBST(head, 10, 30))
+
+	intSet := NewSet[int]()
+	intSet.Add(1)
+	intSet.Add(2)
+	intSet.Add(3)
+	intSet.Remove(2)
+	fmt.Println(intSet.Contains(2))
+	fmt.Println(intSet.Contains(1))
+	fmt.Println(intSet.Size())
+
 	// fith problem input
-	contact := []Contact{
+	/*contact := []Contact{
 		{Name: "John Doe", Email: "johndoe@example.com", Age: 30, Group: []string{"Friends", "Work"}},
 		{Name: "Jane Doe", Email: "janedoe@example.com", Age: 25, Group: []string{"Friends"}},
 		{Name: "Alice Johnson", Email: "alicejohnson@example.com", Age: 30, Group: []string{"Friends", "work"}},
 	}
 	fmt.Println(sortContacts(contact))
-	/*s := &Store{
+	s := &Store{
 		Name: "Store 1",
 		Inventory: map[string]int{
 			"Item 1": 10,
